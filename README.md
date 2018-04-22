@@ -1,2 +1,2 @@
 # leetcode-note
-coding in leetcode and read some notebook
+coding in leetcode and write some notebook
