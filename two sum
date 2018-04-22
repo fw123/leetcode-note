@@ -14,6 +14,9 @@ My solution1:
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         int[] solution = new int[2];                //初始化返回值
+        if(nums==null || nums.length<2){            //判断意外情况，可以减少不必要的耗时
+            return solution;
+        }
         for(int i=0;i<nums.length;i++){             //循环两次该数组
             for(int j=i+1;j<nums.length;j++){
                 if((nums[i] + nums[j])==target){    //判断所有相加情况
@@ -23,5 +26,23 @@ class Solution {
             }
         }
         return solution;
+    }
+}
+
+看了其他解法，大开眼界，我个人觉得最佳的是：
+巧妙利用两个加数和target之间的关系，还有map，只遍历一遍nums就可以得到解
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int[] result = new int[2];
+        HashMap<Integer,Integer> res = new HashMap<Integer,Integer>();
+        for(int i = 0; i < nums.length; i++){
+            if(res.containsKey(target - nums[i])){
+                result[0] = res.get(target - nums[i]);
+                result[1] = i;
+                break;
+            }
+            res.put(nums[i],i);
+        }
+        return result;
     }
 }
