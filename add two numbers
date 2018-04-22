@@ -44,6 +44,11 @@ class Solution {
 -，-疯狂甩锅
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        //每次都忘记先判断意外情况，真的皮
+        if(l1 == null)
+            return l2;
+        if(l2 == null)
+            return l1;
         ListNode head = new ListNode(0);
         ListNode p = l1, q = l2 ,cur = head;
         int carry = 0;
