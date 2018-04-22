@@ -15,7 +15,7 @@ class Solution {
     public int[] twoSum(int[] nums, int target) {
         int[] solution = new int[2];                //初始化返回值
         for(int i=0;i<nums.length;i++){             //循环两次该数组
-            for(int j=i;j<nums.length;j++){
+            for(int j=i+1;j<nums.length;j++){
                 if((nums[i] + nums[j])==target){    //判断所有相加情况
                     solution[0] = i;
                     solution[1] = j;
